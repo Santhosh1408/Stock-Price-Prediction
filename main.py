@@ -20,7 +20,7 @@ df = yf.download(user_input, start_date,end_date)
 
 # Describing Data
 
-st.subheader('Data from 2010-2022')
+st.subheader(f'PLOTTED FROM \n {start_date} \n to \n {end_date}')
 st.write(df.describe())
 
 #Visualizations
