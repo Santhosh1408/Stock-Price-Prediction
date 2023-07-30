@@ -8,14 +8,15 @@ import streamlit as st
 from datetime import date
 
 
-start = '2010-01-01'
-end = date.today()
-
-
 st.title("Stock Price Prediction📈")
 user_input = st.text_input("Enter Stock Ticker",'AAPL')
 
-df = yf.download(user_input, start,end)
+start_date = st.slider("Select Start Date", value=date(2010, 1, 1), min_value=date(2000, 1, 1), max_value=date.today())
+
+# Slider for the end date
+end_date = st.slider("Select End Date", value=date.today(), min_value=date(2000, 1, 1), max_value=date.today())
+
+df = yf.download(user_input, start_date,end_date)
 
 # Describing Data
 
