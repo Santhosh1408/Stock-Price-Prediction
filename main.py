@@ -16,7 +16,11 @@ start_date = st.slider("Select Start Date", value=date(2010, 1, 1), min_value=da
 # Slider for the end date
 end_date = st.slider("Select End Date", value=date.today(), min_value=date(2000, 1, 1), max_value=date.today())
 
-df = yf.download(user_input, start_date,end_date)
+if end_date >= start_date:
+    df = yf.download(user_input, start_date, end_date)
+    # Rest of your code for data processing, visualization, and prediction...
+else:
+    st.error("End date must not be greater than or equal to start date.")
 
 # Describing Data
 
